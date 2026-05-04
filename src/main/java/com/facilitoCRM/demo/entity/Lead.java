@@ -45,12 +45,19 @@ public class Lead {
     private String relacaoImovel;
 
     // Endereco
+    @Column(name = "endereco_cep")
     private String enderecoCep;
+    @Column(name = "endereco_rua")
     private String enderecoRua;
+    @Column(name = "endereco_numero")
     private String enderecoNumero;
+    @Column(name = "endereco_complemento")
     private String enderecoComplemento;
+    @Column(name = "endereco_bairro")
     private String enderecoBairro;
+    @Column(name = "endereco_cidade")
     private String enderecoCidade;
+    @Column(name = "endereco_uf")
     private String enderecoUf;
 
     // Relacoes (IDs)
