@@ -19,10 +19,13 @@ public class Cliente {
     private UUID userId;
 
     public Cliente() {}
-
+ 
+    public UUID getId() { return id; }
+    public void setId(UUID id) { this.id = id; }
+ 
     public String getCompraFeita() { return compraFeita; }
     public void setCompraFeita(String compraFeita) { this.compraFeita = compraFeita; }
-
+ 
     public UUID getUserId() { return userId; }
     public void setUserId(UUID userId) { this.userId = userId; }
 }
