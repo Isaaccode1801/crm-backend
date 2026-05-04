@@ -27,5 +27,4 @@ networks:
   n8n_default:
     external: true
 
-volumes:
-  # Volumes do Caddy removidos pois não serão mais usados
+# Configuração concluída
