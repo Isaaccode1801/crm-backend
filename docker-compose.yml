@@ -18,6 +18,7 @@ services:
       - "traefik.http.routers.facilito-backend.tls=true"
       - "traefik.http.routers.facilito-backend.tls.certresolver=mytlschallenge"
       - "traefik.http.services.facilito-backend.loadbalancer.server.port=8080"
+      - "traefik.docker.network=n8n_default"
     networks:
       - facilito-network
       - n8n_default
