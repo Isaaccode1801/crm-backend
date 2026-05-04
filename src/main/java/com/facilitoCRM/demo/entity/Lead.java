@@ -16,6 +16,8 @@ import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
 import java.util.UUID;
 
 @Entity
@@ -110,11 +112,11 @@ public class Lead {
     // Relacionamentos Internos
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "lead_id")
-    private List<NotaFiscal> notasFiscais = new ArrayList<>();
+    private Set<NotaFiscal> notasFiscais = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "lead_id")
-    private List<LeadHistoryEntry> historico = new ArrayList<>();
+    private Set<LeadHistoryEntry> historico = new HashSet<>();
 
     @PrePersist
     protected void onCreate() {
@@ -228,9 +230,9 @@ public class Lead {
     public String getExternalId() { return externalId; }
     public void setExternalId(String externalId) { this.externalId = externalId; }
 
-    public List<NotaFiscal> getNotasFiscais() { return notasFiscais; }
-    public void setNotasFiscais(List<NotaFiscal> notasFiscais) { this.notasFiscais = notasFiscais; }
+    public Set<NotaFiscal> getNotasFiscais() { return notasFiscais; }
+    public void setNotasFiscais(Set<NotaFiscal> notasFiscais) { this.notasFiscais = notasFiscais; }
 
-    public List<LeadHistoryEntry> getHistorico() { return historico; }
-    public void setHistorico(List<LeadHistoryEntry> historico) { this.historico = historico; }
+    public Set<LeadHistoryEntry> getHistorico() { return historico; }
+    public void setHistorico(Set<LeadHistoryEntry> historico) { this.historico = historico; }
 }

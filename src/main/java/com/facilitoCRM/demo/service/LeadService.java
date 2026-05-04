@@ -74,7 +74,7 @@ public class LeadService {
                 existingLead.getNotasFiscais().clear();
                 existingLead.getNotasFiscais().addAll(dto.getNotasFiscais().stream()
                         .map(this::toNotaFiscalEntity)
-                        .collect(Collectors.toList()));
+                        .collect(Collectors.toSet()));
             }
 
             Lead saved = leadRepository.save(existingLead);
@@ -212,7 +212,7 @@ public class LeadService {
         if (dto.getNotasFiscais() != null) {
             lead.setNotasFiscais(dto.getNotasFiscais().stream()
                     .map(this::toNotaFiscalEntity)
-                    .collect(Collectors.toList()));
+                    .collect(Collectors.toSet()));
         }
         return lead;
     }
