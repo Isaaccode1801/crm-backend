@@ -15,7 +15,8 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.facilito-backend.rule=Host(`api.facilitomais.com`)"
       - "traefik.http.routers.facilito-backend.entrypoints=websecure"
-      - "traefik.http.routers.facilito-backend.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.facilito-backend.tls=true"
+      - "traefik.http.routers.facilito-backend.tls.certresolver=mytlschallenge"
       - "traefik.http.services.facilito-backend.loadbalancer.server.port=8080"
     networks:
       - facilito-network
