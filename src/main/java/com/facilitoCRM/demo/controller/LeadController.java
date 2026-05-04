@@ -21,12 +21,8 @@ public class LeadController {
     private LeadService service;
 
     @GetMapping
-    public Page<LeadDTO> findAll(
-            @RequestParam(required = false) String search,
-            @RequestParam(required = false) String stage,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "20") int size) {
-        return service.findAllPaged(search, stage, PageRequest.of(page, size, Sort.by("nome").ascending()));
+    public List<LeadDTO> findAll() {
+        return service.findAll();
     }
 
     @GetMapping("/{id}")
