@@ -1,0 +1,19 @@
+services:
+  facilito-backend:
+    build: .
+    container_name: facilito-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=${DB_URL}
+      - SPRING_DATASOURCE_USERNAME=${DB_USER}
+      - SPRING_DATASOURCE_PASSWORD=${DB_PASS}
+      - SPRING_JPA_PROPERTIES_HIBERNATE_DEFAULT_SCHEMA=crm
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=none
+    restart: always
+    networks:
+      - facilito-network
+
+networks:
+  facilito-network:
+    driver: bridge

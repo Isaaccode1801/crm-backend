@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+
 @RestController
 @RequestMapping("/api/leads")
 @CrossOrigin(origins = "http://localhost:8081")
@@ -17,8 +21,12 @@ public class LeadController {
     private LeadService service;
 
     @GetMapping
-    public List<LeadDTO> findAll() {
-        return service.findAll();
+    public Page<LeadDTO> findAll(
+            @RequestParam(required = false) String search,
+            @RequestParam(required = false) String stage,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "20") int size) {
+        return service.findAllPaged(search, stage, PageRequest.of(page, size, Sort.by("nome").ascending()));
     }
 
     @GetMapping("/{id}")
