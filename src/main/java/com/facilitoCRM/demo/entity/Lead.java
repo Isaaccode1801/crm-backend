@@ -35,15 +35,19 @@ public class Lead {
     private String cpf;
 
     // Interesse
+    @Column(name = "interesse")
     private UUID interesse;
+    @Column(name = "preco_interesse")
     private BigDecimal precoInteresse;
+    @Column(name = "interesse_nao_listado")
     private String interesseNaoListado;
-
+ 
     // Imovel
-    // Imovel
+    @Column(name = "tipo_imovel")
     private String tipoImovel;
+    @Column(name = "relacao_imovel")
     private String relacaoImovel;
-
+ 
     // Endereco
     @Column(name = "endereco_cep")
     private String enderecoCep;
@@ -59,33 +63,49 @@ public class Lead {
     private String enderecoCidade;
     @Column(name = "endereco_uf")
     private String enderecoUf;
-
+ 
     // Relacoes (IDs)
+    @Column(name = "servico_id")
     private UUID servicoId;
+    @Column(name = "prestador_id")
     private UUID prestadorId;
+    @Column(name = "external_solicitacao_id")
     private UUID externalSolicitacaoId;
-
+ 
     // Funil Comercial
-    // Funil Comercial
+    @Column(name = "status_funil")
     private String statusFunil;
+    @Column(name = "origem")
     private String origem;
+    @Column(name = "prioridade")
     private String prioridade;
-
+ 
     // Valores
+    @Column(name = "valor_estimado")
     private BigDecimal valorEstimado;
+    @Column(name = "valor_negociado")
     private BigDecimal valorNegociado;
+    @Column(name = "valor_fechado")
     private BigDecimal valorFechado;
+    @Column(name = "comissao_percentual")
     private BigDecimal comissaoPercentual;
+    @Column(name = "comissao")
     private BigDecimal comissao;
-
+ 
     // Datas/Acompanhamento
+    @Column(name = "follow_up_date")
     private LocalDate followUpDate;
+    @Column(name = "conversion_stage_date")
     private LocalDateTime conversionStageDate;
+    @Column(name = "created_at")
     private OffsetDateTime createdAt;
-
+ 
     // Campos Auxiliares
+    @Column(name = "observacoes")
     private String observacoes;
+    @Column(name = "external_source")
     private String externalSource;
+    @Column(name = "external_id")
     private String externalId;
 
     // Relacionamentos Internos

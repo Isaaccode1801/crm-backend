@@ -8,7 +8,9 @@ import java.util.UUID;
 @Table(name = "clientes", schema = "crm")
 public class Cliente extends Lead {
 
+    @Column(name = "compra_feita")
     private String compraFeita;
+    @Column(name = "user_id")
     private UUID userId;
 
     public Cliente() {}

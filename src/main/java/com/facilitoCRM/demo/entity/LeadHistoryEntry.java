@@ -18,9 +18,12 @@ public class LeadHistoryEntry {
 
     private LocalDateTime date;
 
+    @jakarta.persistence.Column(name = "old_status")
     private String oldStatus;
+    @jakarta.persistence.Column(name = "new_status")
     private String newStatus;
 
+    @jakarta.persistence.Column(name = "user_email")
     private String userEmail;
     private String type;
     
