@@ -28,12 +28,14 @@ public class LeadService {
     @Autowired
     private LeadHistoryEntryRepository historyRepository;
 
+    @Transactional(readOnly = true)
     public List<LeadDTO> findAll() {
         return leadRepository.findAll().stream()
                 .map(this::toDTO)
                 .collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
     public LeadDTO findById(UUID id) {
         return leadRepository.findById(id)
                 .map(this::toDTO)
