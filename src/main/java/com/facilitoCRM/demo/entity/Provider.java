@@ -7,6 +7,8 @@ import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.List;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "\"ProviderProfile\"", schema = "public")
 @Immutable 
@@ -64,7 +66,7 @@ public class Provider {
 
     @OneToMany
     @JoinColumn(name = "providerid", referencedColumnName = "id", insertable = false, updatable = false)
-    private List<PublicService> services;
+    private Set<PublicService> services;
 
     protected Provider() {}
 
@@ -100,5 +102,5 @@ public class Provider {
     public Boolean getStripe_onboarding_complete() { return stripe_onboarding_complete; }
 
     public User getUser() { return user; }
-    public List<PublicService> getServices() { return services; }
+    public Set<PublicService> getServices() { return services; }
 }
