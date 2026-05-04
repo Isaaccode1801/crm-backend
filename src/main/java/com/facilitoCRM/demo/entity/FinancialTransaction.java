@@ -2,6 +2,7 @@ package com.facilitoCRM.demo.entity;
 
 import com.facilitoCRM.demo.entity.enums.StatusPagamento;
 import com.facilitoCRM.demo.entity.enums.StatusRepasse;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -20,28 +21,46 @@ public class FinancialTransaction {
     @Id
     private UUID id = UUID.randomUUID();
 
+    @Column(name = "lead_id")
     private UUID leadId;
+    @Column(name = "prestador_id")
     private UUID prestadorId;
+    @Column(name = "servico_id")
     private UUID servicoId;
+    @Column(name = "nota_fiscal_id")
     private UUID notaFiscalId;
 
+    @Column(name = "valor_total")
     private BigDecimal valorTotal;
+    @Column(name = "comissao_percentual")
     private BigDecimal comissaoPercentual;
+    @Column(name = "valor_comissao")
     private BigDecimal valorComissao;
+    @Column(name = "valor_repasse")
     private BigDecimal valorRepasse;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "status_pagamento_cliente")
     private StatusPagamento statusPagamentoCliente;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "status_repasse_prestador")
     private StatusRepasse statusRepassePrestador;
 
+    @Column(name = "data_vencimento")
     private LocalDate dataVencimento;
+    @Column(name = "data_pagamento")
     private LocalDate dataPagamento;
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
+    @Column(name = "metodo_pagamento")
     private String metodoPagamento;
+    
+    @Column(name = "observacoes")
     private String observacoes;
+    
+    @Column(name = "is_app")
     private Boolean isApp;
 
     @PrePersist
