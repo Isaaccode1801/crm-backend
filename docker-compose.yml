@@ -14,6 +14,16 @@ services:
     networks:
       - facilito-network
 
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared-tunnel
+    command: tunnel --no-autoupdate run
+    environment:
+      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
+    restart: always
+    networks:
+      - facilito-network
+
 networks:
   facilito-network:
     driver: bridge
