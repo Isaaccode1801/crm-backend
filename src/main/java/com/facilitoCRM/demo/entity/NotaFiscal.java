@@ -34,6 +34,7 @@ public class NotaFiscal {
     @JsonProperty("data_emissao")
     private LocalDate dataEmissao;
 
+    @Column(name = "data_base64")
     @JsonProperty("data_base64")
     private String dataBase64;
 
