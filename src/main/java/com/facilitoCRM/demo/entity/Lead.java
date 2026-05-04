@@ -20,7 +20,6 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "leads", schema = "crm")
-@Inheritance(strategy = InheritanceType.JOINED)
 public class Lead {
 
     @Id

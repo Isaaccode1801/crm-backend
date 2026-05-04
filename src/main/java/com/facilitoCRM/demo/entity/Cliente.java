@@ -1,12 +1,17 @@
 package com.facilitoCRM.demo.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.util.UUID;
 
 @Entity
 @Table(name = "clientes", schema = "crm")
-public class Cliente extends Lead {
+public class Cliente {
+    
+    @Id
+    private UUID id;
 
     @Column(name = "compra_feita")
     private String compraFeita;
