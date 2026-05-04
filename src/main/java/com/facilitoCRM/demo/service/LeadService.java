@@ -95,7 +95,7 @@ public class LeadService {
         lead.setEnderecoNumero(dto.getEnderecoNumero());
         lead.setEnderecoComplemento(dto.getEnderecoComplemento());
         lead.setEnderecoBairro(dto.getEnderecoBairro());
-        lead.setEnderecoCidade(dto.getEnderecoCidade());
+        lead.setCidade(dto.getEnderecoCidade());
         lead.setEnderecoUf(dto.getEnderecoUf());
         lead.setServicoId(dto.getServicoId());
         lead.setPrestadorId(dto.getPrestadorId());
@@ -139,7 +139,7 @@ public class LeadService {
         dto.setEnderecoNumero(lead.getEnderecoNumero());
         dto.setEnderecoComplemento(lead.getEnderecoComplemento());
         dto.setEnderecoBairro(lead.getEnderecoBairro());
-        dto.setEnderecoCidade(lead.getEnderecoCidade());
+        dto.setEnderecoCidade(lead.getCidade());
         dto.setEnderecoUf(lead.getEnderecoUf());
         dto.setServicoId(lead.getServicoId());
         dto.setPrestadorId(lead.getPrestadorId());
@@ -164,7 +164,6 @@ public class LeadService {
                     .map(this::toNotaFiscalDTO)
                     .collect(Collectors.toList()));
         }
-
         if (lead.getHistorico() != null) {
             dto.setHistorico(lead.getHistorico().stream()
                     .map(this::toLeadHistoryEntryDTO)

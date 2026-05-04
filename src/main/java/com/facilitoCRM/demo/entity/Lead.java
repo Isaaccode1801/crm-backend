@@ -59,7 +59,7 @@ public class Lead {
     @Column(name = "endereco_bairro")
     private String enderecoBairro;
     @Column(name = "endereco_cidade")
-    private String enderecoCidade;
+    private String cidade;
     @Column(name = "endereco_uf")
     private String enderecoUf;
  
@@ -171,8 +171,8 @@ public class Lead {
     public String getEnderecoBairro() { return enderecoBairro; }
     public void setEnderecoBairro(String enderecoBairro) { this.enderecoBairro = enderecoBairro; }
 
-    public String getEnderecoCidade() { return enderecoCidade; }
-    public void setEnderecoCidade(String enderecoCidade) { this.enderecoCidade = enderecoCidade; }
+    public String getCidade() { return cidade; }
+    public void setCidade(String cidade) { this.cidade = cidade; }
 
     public String getEnderecoUf() { return enderecoUf; }
     public void setEnderecoUf(String enderecoUf) { this.enderecoUf = enderecoUf; }

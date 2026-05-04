@@ -16,6 +16,7 @@ public class LeadHistoryEntry {
     @Id
     private UUID id = UUID.randomUUID();
 
+    @jakarta.persistence.Column(name = "date")
     private LocalDateTime date;
 
     @jakarta.persistence.Column(name = "old_status")
@@ -25,6 +26,8 @@ public class LeadHistoryEntry {
 
     @jakarta.persistence.Column(name = "user_email")
     private String userEmail;
+    
+    @jakarta.persistence.Column(name = "type")
     private String type;
     
     @jakarta.persistence.Column(name = "lead_id", insertable = false, updatable = false)

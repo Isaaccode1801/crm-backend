@@ -16,12 +16,21 @@ public class NotaFiscal {
     @Id
     private UUID id = UUID.randomUUID();
 
+    @Column(name = "nome_arquivo")
     @JsonProperty("nome_arquivo")
     private String nomeArquivo;
+
+    @Column(name = "tipo")
     private String tipo;
+
+    @Column(name = "tamanho")
     private Long tamanho;
+
+    @Column(name = "numero_nf")
     @JsonProperty("numero_nf")
     private String numeroNf;
+
+    @Column(name = "data_emissao")
     @JsonProperty("data_emissao")
     private LocalDate dataEmissao;
 
