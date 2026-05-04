@@ -1,3 +1,0 @@
-api.facilitomais.com {
-    reverse_proxy facilito-backend:8080
-}

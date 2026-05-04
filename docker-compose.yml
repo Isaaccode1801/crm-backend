@@ -11,27 +11,21 @@ services:
       - SPRING_JPA_PROPERTIES_HIBERNATE_DEFAULT_SCHEMA=crm
       - SPRING_JPA_HIBERNATE_DDL_AUTO=none
     restart: always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.facilito-backend.rule=Host(`api.facilitomais.com`)"
+      - "traefik.http.routers.facilito-backend.entrypoints=websecure"
+      - "traefik.http.routers.facilito-backend.tls.certresolver=letsencrypt"
+      - "traefik.http.services.facilito-backend.loadbalancer.server.port=8080"
     networks:
       - facilito-network
-
-  caddy:
-    image: caddy:latest
-    container_name: caddy-proxy
-    restart: always
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
-      - caddy_data:/data
-      - caddy_config:/config
-    networks:
-      - facilito-network
+      - n8n_default
 
 networks:
   facilito-network:
     driver: bridge
+  n8n_default:
+    external: true
 
 volumes:
-  caddy_data:
-  caddy_config:
+  # Volumes do Caddy removidos pois não serão mais usados
