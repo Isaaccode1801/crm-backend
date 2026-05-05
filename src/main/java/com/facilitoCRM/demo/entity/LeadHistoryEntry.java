@@ -30,7 +30,7 @@ public class LeadHistoryEntry {
     @jakarta.persistence.Column(name = "type")
     private String type;
     
-    @jakarta.persistence.Column(name = "lead_id", insertable = false, updatable = false)
+    @jakarta.persistence.Column(name = "lead_id")
     private UUID leadId;
 
     @PrePersist

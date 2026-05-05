@@ -48,6 +48,7 @@ public class LeadService {
 
         // Add initial history entry
         LeadHistoryEntry history = new LeadHistoryEntry();
+        history.setLeadId(lead.getId());
         history.setType("CREATION");
         history.setNewStatus(lead.getStatusFunil());
         history.setUserEmail("system"); // Default for now
@@ -212,7 +213,13 @@ public class LeadService {
         
         if (dto.getNotasFiscais() != null) {
             lead.setNotasFiscais(dto.getNotasFiscais().stream()
-                    .map(this::toNotaFiscalEntity)
+                    .map(nfDto -> {
+                        NotaFiscal nf = toNotaFiscalEntity(nfDto);
+                        if (nf.getLeadId() == null) {
+                            nf.setLeadId(lead.getId());
+                        }
+                        return nf;
+                    })
                     .collect(Collectors.toSet()));
         }
         return lead;

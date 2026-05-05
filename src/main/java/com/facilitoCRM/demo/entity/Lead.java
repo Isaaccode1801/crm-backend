@@ -111,11 +111,11 @@ public class Lead {
 
     // Relacionamentos Internos
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "lead_id")
+    @JoinColumn(name = "lead_id", insertable = false, updatable = false)
     private Set<NotaFiscal> notasFiscais = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "lead_id")
+    @JoinColumn(name = "lead_id", insertable = false, updatable = false)
     private Set<LeadHistoryEntry> historico = new HashSet<>();
 
     @PrePersist
