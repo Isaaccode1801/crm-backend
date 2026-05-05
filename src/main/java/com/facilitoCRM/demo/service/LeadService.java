@@ -45,15 +45,16 @@ public class LeadService {
     @Transactional
     public LeadDTO create(LeadDTO dto) {
         Lead lead = toEntity(dto);
-        lead = leadRepository.save(lead);
 
         // Add initial history entry
         LeadHistoryEntry history = new LeadHistoryEntry();
-        history.setLeadId(lead.getId());
         history.setType("CREATION");
         history.setNewStatus(lead.getStatusFunil());
         history.setUserEmail("system"); // Default for now
-        historyRepository.save(history);
+        
+        lead.getHistorico().add(history);
+
+        lead = leadRepository.save(lead);
 
         return toDTO(lead);
     }
