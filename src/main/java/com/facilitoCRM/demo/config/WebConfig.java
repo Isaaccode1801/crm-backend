@@ -12,6 +12,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/api/**")
                 .allowedOrigins(
                     "http://localhost:8081",
+                    "http://localhost:8082",
                     "http://localhost:5173",
                     "https://facilito-hub.lovable.app"
                 )

@@ -18,6 +18,9 @@ public class QuoteDTO {
     private LocalDateTime updatedAt;
     private LocalDateTime approvedAt;
 
+    private String pdfBase64;
+    private String pdfNome;
+
     public QuoteDTO() {}
 
     // Getters and Setters
@@ -56,4 +59,10 @@ public class QuoteDTO {
 
     public LocalDateTime getApprovedAt() { return approvedAt; }
     public void setApprovedAt(LocalDateTime approvedAt) { this.approvedAt = approvedAt; }
+
+    public String getPdfBase64() { return pdfBase64; }
+    public void setPdfBase64(String pdfBase64) { this.pdfBase64 = pdfBase64; }
+
+    public String getPdfNome() { return pdfNome; }
+    public void setPdfNome(String pdfNome) { this.pdfNome = pdfNome; }
 }

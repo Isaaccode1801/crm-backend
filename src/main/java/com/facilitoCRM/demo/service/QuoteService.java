@@ -40,12 +40,20 @@ public class QuoteService {
             existing.setComissaoPercentual(dto.getComissaoPercentual());
             existing.setStatus(dto.getStatus());
             existing.setObservacoes(dto.getObservacoes());
+            existing.setPdfBase64(dto.getPdfBase64());
+            existing.setPdfNome(dto.getPdfNome());
             return toDTO(repository.save(existing));
         }).orElse(null);
     }
 
     public void delete(UUID id) {
         repository.deleteById(id);
+    }
+
+    public List<QuoteDTO> findAll() {
+        return repository.findAll().stream()
+                .map(this::toDTO)
+                .collect(Collectors.toList());
     }
 
     private QuoteDTO toDTO(Quote quote) {
@@ -62,6 +70,8 @@ public class QuoteService {
         dto.setCreatedAt(quote.getCreatedAt());
         dto.setUpdatedAt(quote.getUpdatedAt());
         dto.setApprovedAt(quote.getApprovedAt());
+        dto.setPdfBase64(quote.getPdfBase64());
+        dto.setPdfNome(quote.getPdfNome());
         return dto;
     }
 
@@ -78,6 +88,8 @@ public class QuoteService {
         quote.setComissaoPercentual(dto.getComissaoPercentual());
         quote.setStatus(dto.getStatus());
         quote.setObservacoes(dto.getObservacoes());
+        quote.setPdfBase64(dto.getPdfBase64());
+        quote.setPdfNome(dto.getPdfNome());
         return quote;
     }
 }

@@ -1,5 +1,6 @@
 package com.facilitoCRM.demo.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
@@ -17,20 +18,35 @@ public class Quote {
     private UUID id = UUID.randomUUID();
 
     // UUIDs
+    @Column(name = "lead_id")
     private UUID leadId;
+
+    @Column(name = "servico_id")
     private UUID servicoId;
+
+    @Column(name = "prestador_id")
     private UUID prestadorId;
 
+    @Column(name = "valor_estimado")
     private BigDecimal valorEstimado;
+
+    @Column(name = "valor_negociado")
     private BigDecimal valorNegociado;
+
+    @Column(name = "comissao_percentual")
     private BigDecimal comissaoPercentual;
 
     private String status;
 
     private String observacoes;
 
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    @Column(name = "approved_at")
     private LocalDateTime approvedAt;
 
     @PrePersist
@@ -49,9 +65,21 @@ public class Quote {
         }
     }
 
+    @Column(name = "pdf_base64")
+    private String pdfBase64;
+
+    @Column(name = "pdf_nome")
+    private String pdfNome;
+
     public Quote() {}
 
     // Getters and Setters
+    public String getPdfBase64() { return pdfBase64; }
+    public void setPdfBase64(String pdfBase64) { this.pdfBase64 = pdfBase64; }
+
+    public String getPdfNome() { return pdfNome; }
+    public void setPdfNome(String pdfNome) { this.pdfNome = pdfNome; }
+
     public UUID getId() { return id; }
     public void setId(UUID id) { this.id = id; }
 

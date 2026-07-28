@@ -30,6 +30,9 @@ public class FinancialTransaction {
     @Column(name = "nota_fiscal_id")
     private UUID notaFiscalId;
 
+    @Column(name = "quote_id")
+    private UUID quoteId;
+
     @Column(name = "valor_total")
     private BigDecimal valorTotal;
     @Column(name = "comissao_percentual")
@@ -123,4 +126,7 @@ public class FinancialTransaction {
 
     public Boolean getIsApp() { return isApp; }
     public void setIsApp(Boolean isApp) { this.isApp = isApp; }
+
+    public UUID getQuoteId() { return quoteId; }
+    public void setQuoteId(UUID quoteId) { this.quoteId = quoteId; }
 }

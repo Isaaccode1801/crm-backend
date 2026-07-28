@@ -4,5 +4,6 @@ public enum OrigemLead {
     WHATSAPP,
     SITE,
     INDICACAO,
-    OUTROS
+    OUTROS,
+    REALMATE
 }

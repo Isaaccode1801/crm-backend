@@ -21,6 +21,11 @@ public class QuoteController {
         return service.findAllByLeadId(leadId);
     }
 
+    @GetMapping
+    public List<QuoteDTO> findAll() {
+        return service.findAll();
+    }
+
     @PostMapping
     public QuoteDTO create(@RequestBody QuoteDTO dto) {
         return service.create(dto);

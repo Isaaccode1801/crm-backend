@@ -1,6 +1,7 @@
 package com.facilitoCRM.demo.entity;
 
 import com.facilitoCRM.demo.entity.enums.StatusAppointment;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -18,20 +19,37 @@ public class Appointment {
     @Id
     private UUID id = UUID.randomUUID();
 
+    @Column(name = "lead_id")
     private UUID leadId;
+
+    @Column(name = "prestador_id")
     private UUID prestadorId;
+
+    @Column(name = "servico_id")
     private UUID servicoId;
+
+    @Column(name = "nota_fiscal_id")
     private UUID notaFiscalId;
 
+    @Column(name = "quote_id")
+    private UUID quoteId;
+
     private BigDecimal valor;
+
+    @Column(name = "comissao_percentual")
     private BigDecimal comissaoPercentual;
+
     private BigDecimal comissao;
 
     @Enumerated(EnumType.STRING)
     private StatusAppointment status;
 
+    @Column(name = "data_execucao")
     private LocalDateTime dataExecucao;
+
     private String observacoes;
+
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     @PrePersist
@@ -79,4 +97,7 @@ public class Appointment {
 
     public LocalDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+
+    public UUID getQuoteId() { return quoteId; }
+    public void setQuoteId(UUID quoteId) { this.quoteId = quoteId; }
 }
